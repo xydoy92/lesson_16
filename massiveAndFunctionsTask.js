@@ -28,18 +28,26 @@ function getDataTypeArrays(array) {
 		}
 	}
 }
+function getTwiceNumberArray(array) {
+	return array.map(item => item * 2);
+}
+function getReverseBooleanArray(array) {
+	return array.map(item => item = !item);
+}
+function getLetterChangedArray(array) {
+	return array.map(function (item) {
+		if (item.match(/о/ui)) {
+			item = item.split("о");
+			return item = item.join("л");
+		}
+		return item;
+	});
+}
 
 getDataTypeArrays(data);
-
-numberArray = numberArray.map(item => item * 2);
-booleanArray = booleanArray.map(item => item = !item);
-stringArray = stringArray.map(function (item) {
-	if (item.match(/о/ui)) {
-		item = item.split("о");
-		return item = item.join("л");
-	}
-	return item;
-});
+numberArray = getTwiceNumberArray(numberArray);
+booleanArray = getReverseBooleanArray(booleanArray);
+stringArray = getLetterChangedArray(stringArray);
 
 console.log(numberArray);
 console.log(booleanArray);
