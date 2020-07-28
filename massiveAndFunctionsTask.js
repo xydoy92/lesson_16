@@ -1,15 +1,15 @@
-let data= ['молоко', 34, 717, false, 'копы', true, 74, 108,
+let data = ['молоко', 34, 717, false, 'копы', true, 74, 108,
 	'погроммист', 'котик', 'мемчик', true, true, 666, false
 ];
+let numberArray = [],
+	booleanArray = [],
+	stringArray = [],
+	undefinedArray = [],
+	objectArray = [];
 
 function getDataTypeArrays(array) {
-	let numberArray = [],
-		booleanArray = [],
-		stringArray = [],
-		undefinedArray = [],
-		objectArray = [];
-	for(item of array) {
-		switch(typeof item) {
+	for (item of array) {
+		switch (typeof item) {
 			case "number":
 				numberArray.push(item);
 				break;
@@ -27,25 +27,20 @@ function getDataTypeArrays(array) {
 				break;
 		}
 	}
-	return {
-		numberArray,
-		booleanArray,
-		stringArray,
-		undefinedArray,
-		objectArray,
-	};
 }
 
-let sortedData = getDataTypeArrays(data);
+getDataTypeArrays(data);
 
-sortedData.numberArray = sortedData.numberArray.map(item => item*2);
-sortedData.booleanArray = sortedData.booleanArray.map(item => item = !item);
-sortedData.stringArray = sortedData.stringArray.map(function(item) {
-	if(item.match(/о/ui)) {
+numberArray = numberArray.map(item => item * 2);
+booleanArray = booleanArray.map(item => item = !item);
+stringArray = stringArray.map(function (item) {
+	if (item.match(/о/ui)) {
 		item = item.split("о");
 		return item = item.join("л");
 	}
 	return item;
 });
 
-console.log(sortedData);
+console.log(numberArray);
+console.log(booleanArray);
+console.log(stringArray);
